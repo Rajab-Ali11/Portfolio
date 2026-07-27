@@ -1,6 +1,21 @@
+import { useState } from "react"
 import { ArrowRight, Mail, MapPin, Phone, MessageCircle } from "lucide-react"
 
 export default function Contact() {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [projectType, setProjectType] = useState("")
+  const [message, setMessage] = useState("")
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const subject = encodeURIComponent(`Project Inquiry from ${name} - ${projectType}`)
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nProject Type: ${projectType}\n\nMessage:\n${message}`
+    )
+    window.open(`mailto:rajab.cloudy@gmail.com?subject=${subject}&body=${body}`)
+  }
+
   return (
     <div className="min-h-screen">
       {/* Header */}
@@ -25,13 +40,16 @@ export default function Contact() {
       <section className="px-8 pb-32 lg:px-16 border-t border-border">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 pt-20">
           {/* Form */}
-          <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-8" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <label className="text-sm text-muted-foreground font-light">
                 Name
               </label>
               <input
                 type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
                 className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:border-foreground transition-colors"
                 placeholder="Your name"
               />
@@ -42,6 +60,9 @@ export default function Contact() {
               </label>
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
                 className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:border-foreground transition-colors"
                 placeholder="your@email.com"
               />
@@ -50,15 +71,20 @@ export default function Contact() {
               <label className="text-sm text-muted-foreground font-light">
                 Project Type
               </label>
-              <select className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:border-foreground transition-colors appearance-none">
+              <select
+                value={projectType}
+                onChange={(e) => setProjectType(e.target.value)}
+                required
+                className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:border-foreground transition-colors appearance-none"
+              >
                 <option value="" className="bg-background">Select a type</option>
-                <option value="fullstack" className="bg-background">Full Stack Solution</option>
-                <option value="frontend" className="bg-background">Frontend Development</option>
-                <option value="backend" className="bg-background">Backend Development</option>
-                <option value="api" className="bg-background">API Development</option>
-                <option value="fixing" className="bg-background">Bug Fixing & Debugging</option>
-                <option value="optimization" className="bg-background">Speed & Optimization</option>
-                <option value="other" className="bg-background">Other</option>
+                <option value="Full Stack Solution" className="bg-background">Full Stack Solution</option>
+                <option value="Frontend Development" className="bg-background">Frontend Development</option>
+                <option value="Backend Development" className="bg-background">Backend Development</option>
+                <option value="API Development" className="bg-background">API Development</option>
+                <option value="Bug Fixing & Debugging" className="bg-background">Bug Fixing & Debugging</option>
+                <option value="Speed & Optimization" className="bg-background">Speed & Optimization</option>
+                <option value="Other" className="bg-background">Other</option>
               </select>
             </div>
             <div className="space-y-2">
@@ -67,6 +93,9 @@ export default function Contact() {
               </label>
               <textarea
                 rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
                 className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:border-foreground transition-colors resize-none"
                 placeholder="Tell me about your project..."
               />
