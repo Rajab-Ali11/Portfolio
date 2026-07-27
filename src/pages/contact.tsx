@@ -160,11 +160,11 @@ export default function Contact() {
               </p>
               <div className="flex flex-wrap gap-6">
                 {[
-                  { name: "LinkedIn", url: "https://linkedin.com/in/rajab-ali-636524375" },
-                  { name: "Upwork", url: "https://www.upwork.com/freelancers/~01bf3c34879bc12ce2" },
-                  { name: "Fiverr", url: "https://www.fiverr.com/rajabali10005" },
-                  { name: "GitHub", url: "https://github.com/Rajab-ali99" },
-                  { name: "Portfolio", url: "https://rajabali.pk" },
+                  { name: "LinkedIn", url: "https://www.linkedin.com/in/rajabali-usa/" },
+                  { name: "Upwork", url: "https://www.upwork.com/freelancers/~01e2e483565a3639f6" },
+                  { name: "Fiverr", url: "https://www.fiverr.com/s/qD2d752" },
+                  { name: "GitHub", url: "https://github.com/Rajab-Ali11" },
+                  { name: "Portfolio", url: "https://rajab-ali11.github.io/portfolio/" },
                 ].map((social) => (
                   <a
                     key={social.name}
