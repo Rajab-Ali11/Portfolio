@@ -95,7 +95,7 @@ export default function Home() {
 
       {/* Stats Section */}
       <section className="px-8 lg:px-16 py-20 border-t border-border">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-left">
           {stats.map((stat) => (
             <div key={stat.label}>
               <p className="text-6xl md:text-7xl font-light text-foreground mb-4">
