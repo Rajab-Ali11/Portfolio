@@ -67,8 +67,7 @@ export function AiCharacter() {
         >
           <div className="w-20 h-20 rounded-full bg-background flex items-center justify-center">
             <div className="text-center">
-              <div className="text-2xl font-light text-foreground">RA</div>
-              <div className="text-[8px] text-muted-foreground tracking-widest uppercase">
+              <div className="text-lg font-light text-foreground">
                 Developer
               </div>
             </div>
