@@ -59,7 +59,7 @@ export function AiCharacter() {
       </div>
 
       {/* Center core */}
-      <div className="relative z-10">
+      <div className="relative z-10 flex items-center justify-center">
         <div
           className={`w-24 h-24 rounded-full bg-gradient-to-br from-foreground to-muted-foreground flex items-center justify-center transition-transform duration-500 ${
             pulse ? "scale-110" : "scale-100"
