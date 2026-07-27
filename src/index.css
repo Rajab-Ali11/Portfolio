@@ -1,0 +1,92 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-foreground: #f5f5f5;
+  --color-card: #111111;
+  --color-card-foreground: #f5f5f5;
+  --color-popover: #111111;
+  --color-popover-foreground: #f5f5f5;
+  --color-primary: #f5f5f5;
+  --color-primary-foreground: #0a0a0a;
+  --color-secondary: #1a1a1a;
+  --color-secondary-foreground: #f5f5f5;
+  --color-muted: #1a1a1a;
+  --color-muted-foreground: #888888;
+  --color-accent: #1a1a1a;
+  --color-accent-foreground: #f5f5f5;
+  --color-destructive: #ff4444;
+  --color-destructive-foreground: #f5f5f5;
+  --color-border: #222222;
+  --color-input: #222222;
+  --color-ring: #f5f5f5;
+  --radius: 0.5rem;
+  --color-sidebar-background: #0a0a0a;
+  --color-sidebar-foreground: #f5f5f5;
+  --color-sidebar-primary: #f5f5f5;
+  --color-sidebar-primary-foreground: #0a0a0a;
+  --color-sidebar-accent: #1a1a1a;
+  --color-sidebar-accent-foreground: #f5f5f5;
+  --color-sidebar-border: #222222;
+  --color-sidebar-ring: #f5f5f5;
+  --color-chart-1: #f5f5f5;
+  --color-chart-2: #888888;
+  --color-chart-3: #555555;
+  --color-chart-4: #333333;
+  --color-chart-5: #222222;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .font-bebas {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  .animate-counter {
+    animation: counter 2s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes counter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
