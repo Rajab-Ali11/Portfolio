@@ -7,13 +7,23 @@ export default function Contact() {
   const [projectType, setProjectType] = useState("")
   const [message, setMessage] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const subject = encodeURIComponent(`Project Inquiry from ${name} - ${projectType}`)
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nProject Type: ${projectType}\n\nMessage:\n${message}`
-    )
-    window.open(`mailto:rajab.cloudy@gmail.com?subject=${subject}&body=${body}`)
+    const form = e.target as HTMLFormElement
+    const response = await fetch("https://formspree.io/f/xojgyzbb", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, projectType, message }),
+    })
+    if (response.ok) {
+      alert("Message sent! I'll get back to you soon.")
+      setName("")
+      setEmail("")
+      setProjectType("")
+      setMessage("")
+    } else {
+      alert("Something went wrong. Please try again.")
+    }
   }
 
   return (
